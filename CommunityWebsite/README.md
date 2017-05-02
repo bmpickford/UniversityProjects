@@ -1,3 +1,3 @@
-Project for IFB299 - Community Organisation
+## Project for IFB299 - Community Organisation
 
-Team94-SII
+A website for an organisation that runs community events created using PHP and Apache
