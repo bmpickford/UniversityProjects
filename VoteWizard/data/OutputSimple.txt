@@ -1,0 +1,22 @@
+Results for election: MinMorgulValeSimple
+Enrolment: 25
+
+Shelob              Monster Spider Party          (MSP)
+Gorbag              Filthy Orc Party              (FOP)
+Shagrat             Stinking Orc Party            (SOP)
+
+
+Counting primary votes; 3 alternatives available
+
+Simple election: MinMorgulValeSimple
+
+Shelob (MSP)                 8
+Gorbag (FOP)                 8
+Shagrat (SOP)                3
+
+Informal                     4
+
+Votes Cast                  23
+
+
+Candidate Shelob (Monster Spider Party) is the winner with 8 votes...

@@ -1,0 +1,34 @@
+Results for election: MinMorgulVale
+Enrolment: 25
+
+Shelob              Monster Spider Party          (MSP)
+Gorbag              Filthy Orc Party              (FOP)
+Shagrat             Stinking Orc Party            (SOP)
+
+
+Counting primary votes; 3 alternatives available
+
+Preferential election: MinMorgulVale
+
+Shelob (MSP)                 8
+Gorbag (FOP)                 7
+Shagrat (SOP)                3
+
+Informal                     3
+
+Votes Cast                  21
+
+
+Preferences required: distributing Shagrat: 3 votes
+
+Preferential election: MinMorgulVale
+
+Shelob (MSP)                10
+Gorbag (FOP)                 8
+
+Informal                     3
+
+Votes Cast                  21
+
+
+Candidate Shelob (Monster Spider Party) is the winner with 10 votes...

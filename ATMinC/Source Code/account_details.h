@@ -1,0 +1,1 @@
+void getDetails(char *fname, char *sname, char *clientno, char *accounts);
