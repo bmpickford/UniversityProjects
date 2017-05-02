@@ -1,0 +1,1 @@
+void increase_score(int increase);

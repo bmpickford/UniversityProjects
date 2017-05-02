@@ -1,0 +1,467 @@
+   1               		.file	"start.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               		.section	.text.PinChangeInit,"ax",@progbits
+  17               	.global	PinChangeInit
+  19               	PinChangeInit:
+  20               	.LFB12:
+  21               	.LSM0:
+  22               	/* prologue: function */
+  23               	/* frame size = 0 */
+  24               	.LSM1:
+  25 0000 EBE6      		ldi r30,lo8(107)
+  26 0002 F0E0      		ldi r31,hi8(107)
+  27 0004 8081      		ld r24,Z
+  28 0006 8160      		ori r24,lo8(1)
+  29 0008 8083      		st Z,r24
+  30               	.LSM2:
+  31 000a 8081      		ld r24,Z
+  32 000c 8260      		ori r24,lo8(2)
+  33 000e 8083      		st Z,r24
+  34               	.LSM3:
+  35 0010 E8E6      		ldi r30,lo8(104)
+  36 0012 F0E0      		ldi r31,hi8(104)
+  37 0014 8081      		ld r24,Z
+  38 0016 8160      		ori r24,lo8(1)
+  39 0018 8083      		st Z,r24
+  40               	.LSM4:
+  41 001a E9E6      		ldi r30,lo8(105)
+  42 001c F0E0      		ldi r31,hi8(105)
+  43 001e 8081      		ld r24,Z
+  44 0020 8160      		ori r24,lo8(1)
+  45 0022 8083      		st Z,r24
+  46               	.LSM5:
+  47               	/* #APP */
+  48               	 ;  86 "start.c" 1
+  49 0024 7894      		sei
+  50               	 ;  0 "" 2
+  51               	/* epilogue start */
+  52               	.LSM6:
+  53               	/* #NOAPP */
+  54 0026 0895      		ret
+  55               	.LFE12:
+  57               		.data
+  58               	.LC0:
+  59 0000 596F 7520 		.string	"You lost all your"
+  59      6C6F 7374 
+  59      2061 6C6C 
+  59      2079 6F75 
+  59      7200 
+  60               	.LC1:
+  61 0012 6C69 7665 		.string	"lives!"
+  61      7321 00
+  62               	.LC2:
+  63 0019 2D20 4741 		.string	"- GAME OVER -"
+  63      4D45 204F 
+  63      5645 5220 
+  63      2D00 
+  64               		.section	.text.game_over,"ax",@progbits
+  65               	.global	game_over
+  67               	game_over:
+  68               	.LFB11:
+  69               	.LSM7:
+  70               	/* prologue: function */
+  71               	/* frame size = 0 */
+  72               	.LSM8:
+  73 0000 80E0      		ldi r24,lo8(.LC0)
+  74 0002 90E0      		ldi r25,hi8(.LC0)
+  75 0004 60E0      		ldi r22,lo8(0)
+  76 0006 4AE0      		ldi r20,lo8(10)
+  77 0008 0E94 0000 		call draw_string
+  78               	.LSM9:
+  79 000c 80E0      		ldi r24,lo8(.LC1)
+  80 000e 90E0      		ldi r25,hi8(.LC1)
+  81 0010 6AE0      		ldi r22,lo8(10)
+  82 0012 44E1      		ldi r20,lo8(20)
+  83 0014 0E94 0000 		call draw_string
+  84               	.LSM10:
+  85 0018 80E0      		ldi r24,lo8(.LC2)
+  86 001a 90E0      		ldi r25,hi8(.LC2)
+  87 001c 6AE0      		ldi r22,lo8(10)
+  88 001e 43E2      		ldi r20,lo8(35)
+  89 0020 0E94 0000 		call draw_string
+  90               	.LSM11:
+  91 0024 0E94 0000 		call refresh
+  92               	.LSM12:
+  93 0028 2A9A      		sbi 37-32,2
+  94 002a 80E1      		ldi r24,lo8(10000)
+  95 002c 97E2      		ldi r25,hi8(10000)
+  96               	.LVL0:
+  97               	.LBB36:
+  98               	.LBB37:
+  99               	.LBB38:
+ 100               	.LBB39:
+ 101               	.LSM13:
+ 102 002e 20E9      		ldi r18,lo8(400)
+ 103 0030 31E0      		ldi r19,hi8(400)
+ 104               	.L4:
+ 105 0032 F901      		movw r30,r18
+ 106               	.LVL1:
+ 107               	/* #APP */
+ 108               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 109 0034 3197      		1: sbiw r30,1
+ 110 0036 01F4      		brne 1b
+ 111               	 ;  0 "" 2
+ 112               	/* #NOAPP */
+ 113               	.LBE39:
+ 114               	.LBE38:
+ 115               	.LSM14:
+ 116 0038 0197      		sbiw r24,1
+ 117               	.LSM15:
+ 118 003a 01F4      		brne .L4
+ 119               	/* epilogue start */
+ 120               	.LBE37:
+ 121               	.LBE36:
+ 122               	.LSM16:
+ 123 003c 0895      		ret
+ 124               	.LFE11:
+ 126               		.data
+ 127               	.LC3:
+ 128 0027 436F 6E67 		.string	"Congratulations!"
+ 128      7261 7475 
+ 128      6C61 7469 
+ 128      6F6E 7321 
+ 128      00
+ 129               	.LC4:
+ 130 0038 596F 7520 		.string	"You killed all"
+ 130      6B69 6C6C 
+ 130      6564 2061 
+ 130      6C6C 00
+ 131               	.LC5:
+ 132 0047 7468 6520 		.string	"the zombies!"
+ 132      7A6F 6D62 
+ 132      6965 7321 
+ 132      00
+ 133               		.section	.text.win_screen,"ax",@progbits
+ 134               	.global	win_screen
+ 136               	win_screen:
+ 137               	.LFB10:
+ 138               	.LSM17:
+ 139               	/* prologue: function */
+ 140               	/* frame size = 0 */
+ 141               	.LSM18:
+ 142 0000 80E0      		ldi r24,lo8(.LC3)
+ 143 0002 90E0      		ldi r25,hi8(.LC3)
+ 144 0004 60E0      		ldi r22,lo8(0)
+ 145 0006 4AE0      		ldi r20,lo8(10)
+ 146 0008 0E94 0000 		call draw_string
+ 147               	.LSM19:
+ 148 000c 80E0      		ldi r24,lo8(.LC4)
+ 149 000e 90E0      		ldi r25,hi8(.LC4)
+ 150 0010 60E0      		ldi r22,lo8(0)
+ 151 0012 49E1      		ldi r20,lo8(25)
+ 152 0014 0E94 0000 		call draw_string
+ 153               	.LSM20:
+ 154 0018 80E0      		ldi r24,lo8(.LC5)
+ 155 001a 90E0      		ldi r25,hi8(.LC5)
+ 156 001c 6AE0      		ldi r22,lo8(10)
+ 157 001e 43E2      		ldi r20,lo8(35)
+ 158 0020 0E94 0000 		call draw_string
+ 159               	.LSM21:
+ 160 0024 0E94 0000 		call refresh
+ 161               	.LSM22:
+ 162 0028 2A9A      		sbi 37-32,2
+ 163 002a 80E1      		ldi r24,lo8(10000)
+ 164 002c 97E2      		ldi r25,hi8(10000)
+ 165               	.LVL2:
+ 166               	.LBB40:
+ 167               	.LBB41:
+ 168               	.LBB42:
+ 169               	.LBB43:
+ 170               	.LSM23:
+ 171 002e 20E9      		ldi r18,lo8(400)
+ 172 0030 31E0      		ldi r19,hi8(400)
+ 173               	.L8:
+ 174 0032 F901      		movw r30,r18
+ 175               	.LVL3:
+ 176               	/* #APP */
+ 177               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 178 0034 3197      		1: sbiw r30,1
+ 179 0036 01F4      		brne 1b
+ 180               	 ;  0 "" 2
+ 181               	/* #NOAPP */
+ 182               	.LBE43:
+ 183               	.LBE42:
+ 184               	.LSM24:
+ 185 0038 0197      		sbiw r24,1
+ 186               	.LSM25:
+ 187 003a 01F4      		brne .L8
+ 188               	/* epilogue start */
+ 189               	.LBE41:
+ 190               	.LBE40:
+ 191               	.LSM26:
+ 192 003c 0895      		ret
+ 193               	.LFE10:
+ 195               		.data
+ 196               	.LC6:
+ 197 0054 4265 6E6A 		.string	"Benjamin McColm-"
+ 197      616D 696E 
+ 197      204D 6343 
+ 197      6F6C 6D2D 
+ 197      00
+ 198               	.LC7:
+ 199 0065 5069 636B 		.string	"Pickford"
+ 199      666F 7264 
+ 199      00
+ 200               	.LC8:
+ 201 006e 6E38 3834 		.string	"n8847762"
+ 201      3737 3632 
+ 201      00
+ 202               	.LC9:
+ 203 0077 5072 6573 		.string	"Press any button"
+ 203      7320 616E 
+ 203      7920 6275 
+ 203      7474 6F6E 
+ 203      00
+ 204               		.section	.text.start_screen,"ax",@progbits
+ 205               	.global	start_screen
+ 207               	start_screen:
+ 208               	.LFB7:
+ 209               	.LSM27:
+ 210               	/* prologue: function */
+ 211               	/* frame size = 0 */
+ 212               	.LSM28:
+ 213 0000 80E0      		ldi r24,lo8(.LC6)
+ 214 0002 90E0      		ldi r25,hi8(.LC6)
+ 215 0004 60E0      		ldi r22,lo8(0)
+ 216 0006 42E0      		ldi r20,lo8(2)
+ 217 0008 0E94 0000 		call draw_string
+ 218               	.LSM29:
+ 219 000c 80E0      		ldi r24,lo8(.LC7)
+ 220 000e 90E0      		ldi r25,hi8(.LC7)
+ 221 0010 60E0      		ldi r22,lo8(0)
+ 222 0012 4CE0      		ldi r20,lo8(12)
+ 223 0014 0E94 0000 		call draw_string
+ 224               	.LSM30:
+ 225 0018 80E0      		ldi r24,lo8(.LC8)
+ 226 001a 90E0      		ldi r25,hi8(.LC8)
+ 227 001c 60E0      		ldi r22,lo8(0)
+ 228 001e 49E1      		ldi r20,lo8(25)
+ 229 0020 0E94 0000 		call draw_string
+ 230               	.LSM31:
+ 231 0024 80E0      		ldi r24,lo8(.LC9)
+ 232 0026 90E0      		ldi r25,hi8(.LC9)
+ 233 0028 60E0      		ldi r22,lo8(0)
+ 234 002a 48E2      		ldi r20,lo8(40)
+ 235 002c 0E94 0000 		call draw_string
+ 236               	.LSM32:
+ 237 0030 0E94 0000 		call refresh
+ 238               	/* epilogue start */
+ 239               	.LSM33:
+ 240 0034 0895      		ret
+ 241               	.LFE7:
+ 243               		.data
+ 244               	.LC10:
+ 245 0088 2D20 3320 		.string	"- 3 -"
+ 245      2D00 
+ 246               	.LC11:
+ 247 008e 2D20 3220 		.string	"- 2 -"
+ 247      2D00 
+ 248               	.LC12:
+ 249 0094 2D20 3120 		.string	"- 1 -"
+ 249      2D00 
+ 250               		.section	.text.counter,"ax",@progbits
+ 251               	.global	counter
+ 253               	counter:
+ 254               	.LFB8:
+ 255               	.LSM34:
+ 256               	/* prologue: function */
+ 257               	/* frame size = 0 */
+ 258               	.LSM35:
+ 259 0000 80E0      		ldi r24,lo8(.LC10)
+ 260 0002 90E0      		ldi r25,hi8(.LC10)
+ 261 0004 6CE1      		ldi r22,lo8(28)
+ 262 0006 40E1      		ldi r20,lo8(16)
+ 263 0008 0E94 0000 		call draw_string
+ 264               	.LSM36:
+ 265 000c 0E94 0000 		call refresh
+ 266 0010 88E8      		ldi r24,lo8(5000)
+ 267 0012 93E1      		ldi r25,hi8(5000)
+ 268               	.LVL4:
+ 269               	.LBB44:
+ 270               	.LBB45:
+ 271               	.LBB46:
+ 272               	.LBB47:
+ 273               	.LSM37:
+ 274 0014 20E9      		ldi r18,lo8(400)
+ 275 0016 31E0      		ldi r19,hi8(400)
+ 276               	.L14:
+ 277 0018 F901      		movw r30,r18
+ 278               	.LVL5:
+ 279               	/* #APP */
+ 280               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 281 001a 3197      		1: sbiw r30,1
+ 282 001c 01F4      		brne 1b
+ 283               	 ;  0 "" 2
+ 284               	/* #NOAPP */
+ 285               	.LBE47:
+ 286               	.LBE46:
+ 287               	.LSM38:
+ 288 001e 0197      		sbiw r24,1
+ 289               	.LSM39:
+ 290 0020 01F4      		brne .L14
+ 291               	.LBE45:
+ 292               	.LBE44:
+ 293               	.LSM40:
+ 294 0022 0E94 0000 		call clear
+ 295               	.LVL6:
+ 296               	.LSM41:
+ 297 0026 80E0      		ldi r24,lo8(.LC11)
+ 298 0028 90E0      		ldi r25,hi8(.LC11)
+ 299 002a 6CE1      		ldi r22,lo8(28)
+ 300 002c 40E1      		ldi r20,lo8(16)
+ 301 002e 0E94 0000 		call draw_string
+ 302               	.LSM42:
+ 303 0032 0E94 0000 		call refresh
+ 304 0036 88E8      		ldi r24,lo8(5000)
+ 305 0038 93E1      		ldi r25,hi8(5000)
+ 306               	.LVL7:
+ 307               	.LBB48:
+ 308               	.LBB49:
+ 309               	.LBB50:
+ 310               	.LBB51:
+ 311               	.LSM43:
+ 312 003a 20E9      		ldi r18,lo8(400)
+ 313 003c 31E0      		ldi r19,hi8(400)
+ 314               	.L15:
+ 315 003e F901      		movw r30,r18
+ 316               	.LVL8:
+ 317               	/* #APP */
+ 318               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 319 0040 3197      		1: sbiw r30,1
+ 320 0042 01F4      		brne 1b
+ 321               	 ;  0 "" 2
+ 322               	/* #NOAPP */
+ 323               	.LBE51:
+ 324               	.LBE50:
+ 325               	.LSM44:
+ 326 0044 0197      		sbiw r24,1
+ 327               	.LSM45:
+ 328 0046 01F4      		brne .L15
+ 329               	.LBE49:
+ 330               	.LBE48:
+ 331               	.LSM46:
+ 332 0048 0E94 0000 		call clear
+ 333               	.LVL9:
+ 334               	.LSM47:
+ 335 004c 80E0      		ldi r24,lo8(.LC12)
+ 336 004e 90E0      		ldi r25,hi8(.LC12)
+ 337 0050 6CE1      		ldi r22,lo8(28)
+ 338 0052 40E1      		ldi r20,lo8(16)
+ 339 0054 0E94 0000 		call draw_string
+ 340               	.LSM48:
+ 341 0058 0E94 0000 		call refresh
+ 342 005c 88E8      		ldi r24,lo8(5000)
+ 343 005e 93E1      		ldi r25,hi8(5000)
+ 344               	.LVL10:
+ 345               	.LBB52:
+ 346               	.LBB53:
+ 347               	.LBB54:
+ 348               	.LBB55:
+ 349               	.LSM49:
+ 350 0060 20E9      		ldi r18,lo8(400)
+ 351 0062 31E0      		ldi r19,hi8(400)
+ 352               	.L16:
+ 353 0064 F901      		movw r30,r18
+ 354               	.LVL11:
+ 355               	/* #APP */
+ 356               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 357 0066 3197      		1: sbiw r30,1
+ 358 0068 01F4      		brne 1b
+ 359               	 ;  0 "" 2
+ 360               	/* #NOAPP */
+ 361               	.LBE55:
+ 362               	.LBE54:
+ 363               	.LSM50:
+ 364 006a 0197      		sbiw r24,1
+ 365               	.LSM51:
+ 366 006c 01F4      		brne .L16
+ 367               	.LBE53:
+ 368               	.LBE52:
+ 369               	.LSM52:
+ 370 006e 0E94 0000 		call clear
+ 371               	.LVL12:
+ 372               	/* epilogue start */
+ 373               	.LSM53:
+ 374 0072 0895      		ret
+ 375               	.LFE8:
+ 377               		.section	.text.setup_device,"ax",@progbits
+ 378               	.global	setup_device
+ 380               	setup_device:
+ 381               	.LFB9:
+ 382               	.LSM54:
+ 383               	/* prologue: function */
+ 384               	/* frame size = 0 */
+ 385               	.LSM55:
+ 386 0000 8CE0      		ldi r24,lo8(12)
+ 387 0002 84B9      		out 36-32,r24
+ 388               	.LSM56:
+ 389 0004 80E4      		ldi r24,lo8(64)
+ 390 0006 8AB9      		out 42-32,r24
+ 391               	.LSM57:
+ 392 0008 15B8      		out 37-32,__zero_reg__
+ 393               	.LSM58:
+ 394 000a 1BB8      		out 43-32,__zero_reg__
+ 395               	.LSM59:
+ 396 000c 8FE3      		ldi r24,lo8(63)
+ 397 000e 0E94 0000 		call LCDInitialise
+ 398               	.LSM60:
+ 399 0012 0E94 0000 		call clear
+ 400               	.LSM61:
+ 401 0016 0E94 0000 		call start_screen
+ 402               	.LSM62:
+ 403 001a 2B9A      		sbi 37-32,3
+ 404 001c 80E0      		ldi r24,lo8(0)
+ 405 001e 90E0      		ldi r25,hi8(0)
+ 406               	.LVL13:
+ 407 0020 00C0      		rjmp .L22
+ 408               	.L23:
+ 409               	.LSM63:
+ 410 0022 0196      		adiw r24,1
+ 411               	.L22:
+ 412               	.LSM64:
+ 413 0024 199B      		sbis 35-32,1
+ 414 0026 00C0      		rjmp .L23
+ 415               	.LSM65:
+ 416 0028 0E94 0000 		call srand
+ 417               	.LVL14:
+ 418               	.LSM66:
+ 419 002c 0E94 0000 		call clear
+ 420               	.LSM67:
+ 421 0030 0E94 0000 		call refresh
+ 422               	.LSM68:
+ 423 0034 2B98      		cbi 37-32,3
+ 424               	.LSM69:
+ 425 0036 0E94 0000 		call counter
+ 426               	/* epilogue start */
+ 427               	.LSM70:
+ 428 003a 0895      		ret
+ 429               	.LFE9:
+ 495               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 start.c
+C:\cygwin\tmp/ccZxiCYb.s:2      *ABS*:0000003f __SREG__
+C:\cygwin\tmp/ccZxiCYb.s:3      *ABS*:0000003e __SP_H__
+C:\cygwin\tmp/ccZxiCYb.s:4      *ABS*:0000003d __SP_L__
+C:\cygwin\tmp/ccZxiCYb.s:5      *ABS*:00000034 __CCP__
+C:\cygwin\tmp/ccZxiCYb.s:6      *ABS*:00000000 __tmp_reg__
+C:\cygwin\tmp/ccZxiCYb.s:7      *ABS*:00000001 __zero_reg__
+C:\cygwin\tmp/ccZxiCYb.s:19     .text.PinChangeInit:00000000 PinChangeInit
+C:\cygwin\tmp/ccZxiCYb.s:67     .text.game_over:00000000 game_over
+C:\cygwin\tmp/ccZxiCYb.s:136    .text.win_screen:00000000 win_screen
+C:\cygwin\tmp/ccZxiCYb.s:207    .text.start_screen:00000000 start_screen
+C:\cygwin\tmp/ccZxiCYb.s:253    .text.counter:00000000 counter
+C:\cygwin\tmp/ccZxiCYb.s:380    .text.setup_device:00000000 setup_device
+
+UNDEFINED SYMBOLS
+draw_string
+refresh
+clear
+LCDInitialise
+srand
+__do_copy_data
